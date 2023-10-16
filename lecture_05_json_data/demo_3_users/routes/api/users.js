@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+    console.log(req.body);
     const body = req.body;
     const data = await getData();
     data.push(body);

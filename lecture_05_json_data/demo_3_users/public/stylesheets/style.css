@@ -6,3 +6,20 @@ body {
 a {
   color: #00B7FF;
 }
+
+div.user-form {
+    border: 2px solid #ccc;
+    padding: 20px;
+}
+
+div.form, div.form > input {
+    margin-bottom: 1lh;
+}
+
+div.form > * {
+    display: block;
+}
+
+div.show-users {
+    padding: 22px 0;
+}

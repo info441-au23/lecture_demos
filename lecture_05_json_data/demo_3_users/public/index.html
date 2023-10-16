@@ -1,16 +1,33 @@
 <html>
 
-<head>
-  <title>Express</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
-  <script src="js/index.js"></script>
-</head>
+    <head>
+        <title>Express</title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <script src="js/index.js"></script>
+    </head>
 
-<body>
-  <h1>Express</h1>
-  <p>Welcome to Express</p>
+    <body>
+        <h1>Users</h1>
 
-  <button type="button" onclick="pushUser()">Send User</button>
-</body>
+        <div class='user-form'>
+            <p>Enter User Information</p>
+
+            <div class='form'>
+                <label for="firstName">First Name</label>
+                <input type='text' id='firstName'>
+                <label for="lastName">Last Name</label>
+                <input type='text' id='lastName'>
+                <label for="email">Email</label>
+                <input type='text' id='email'>
+            </div>
+
+            <button type="button" onclick="postUser()">Send User</button>
+        </div>
+        <div class='show-users'>
+            <button type="button" onclick="getUsers()">Get Users</button> 
+
+            <div id='results'></div>
+        </div>
+    </body>
 
 </html>
