@@ -1,4 +1,7 @@
 async function postUser() {
+    const postResponseDiv = document.getElementById('postResponse');
+    postResponseDiv.style.setProperty('display', 'none');
+
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const email = document.getElementById('email').value;
@@ -14,7 +17,14 @@ async function postUser() {
             'Content-Type': 'application/json'
         }
     });
+
     const data = await response.text();
+    postResponseDiv.style.setProperty('display', 'block');
+    postResponseDiv.innerHTML = data;
+
+    setTimeout(() => {
+        postResponseDiv.style.setProperty('display', 'none');
+    }, 2000);
 }
 
 async function getUsers(){
