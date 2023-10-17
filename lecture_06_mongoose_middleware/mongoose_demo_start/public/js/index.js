@@ -29,8 +29,7 @@ async function postUser() {
 
 async function getUsers(){
     const response = await fetch('/api/users');
-    const raw = await response.text();
-    const asJson = JSON.parse(raw);
+    const asJson = await response.json();
 
     const asHtmls = asJson.map(({firstName, lastName, email}) => `
         <li>

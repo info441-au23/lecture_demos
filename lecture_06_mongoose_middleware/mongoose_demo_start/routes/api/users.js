@@ -1,14 +1,18 @@
 import express from 'express';
-import { promises as fs } from 'fs';
+import User from '../../models/user.js';
 
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-    // TODO: Fill this in
+    const users = await User.find();
+    res.json(users);
 });
 
 router.post('/', async (req, res) => {
-    // TODO: Fill this in
+    const {firstName, lastName, email} = req.body;
+    const newUser = new User({firstName, lastName, email});
+    await newUser.save();
+    res.json({success: true});
 });
 
 export default router;
