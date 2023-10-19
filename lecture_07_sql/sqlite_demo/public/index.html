@@ -1,0 +1,21 @@
+<html>
+
+    <head>
+        <title>Mission: reveal the spies</title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <script src='js/index.js'></script>
+    </head>
+
+    <body>
+        <h1>Mission: Reveal the spies</h1>
+        <div>
+            <p>This is a very insecure service. Using SQL injection, you can find all the spies.</p>
+            <label for="searchBox">Enter a first name</label>
+            <input id="searchBox" type='text' placeholder='Search by first name, e.g. "Jack" or "James"' />
+            <button type='button' onclick='getSpies()'>Search</button>
+
+            <div id="error" style="color: red; display: none"></div>
+            <div id="results"></div>
+        </div>
+	</body>
+</html>

@@ -1,0 +1,19 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+input[type=text] {
+      width: 500px;
+}
+
+pre {
+    margin-left: 20px;
+    background-color: GhostWhite;
+    padding: 10px;
+    border: solid lightgray 0.5px
+}
