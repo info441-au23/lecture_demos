@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <script type='text/javascript'>
+            async function handleClick() {
+                const page = document.getElementById('pageInput').value;
+                const response = await fetch(`/og-tags?page=${page}`);
+                const text = await response.text();
+                document.getElementById('results').innerHTML = text;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Pull meta tags from a page</h1>
+        <input type='text' id='pageInput' style='width: 400px'> <button type='button' onclick='handleClick()'>Get Meta Tags</button>
+
+        <div id="results"></div>
+    </body>
+</html>
