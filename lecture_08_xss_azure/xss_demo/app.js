@@ -1,9 +1,22 @@
 import express from 'express'
 import fetch from 'node-fetch';
+import sanitizeHtml from 'sanitize-html';
 import { parse } from 'node-html-parser';
 
 const app = express();
 app.use(express.static('public'));
+
+/*
+// More manual version of sanitizing HTML
+const escapeHTML = str => str.replace(/[&<>'"]/g, 
+  tag => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      "'": '&#39;',
+      '"': '&quot;'
+    }[tag]));
+    */
 
 app.get('/og-tags', async (req, res) => {
     const { page } = req.query;
@@ -18,7 +31,7 @@ app.get('/og-tags', async (req, res) => {
             <div>${tag.getAttribute('content')}</div>
         `;
     });
-    res.send(myReturn.join(''));
+    res.send(sanitizeHtml(myReturn.join('')));
 });
 
 app.listen(3000, () => {
