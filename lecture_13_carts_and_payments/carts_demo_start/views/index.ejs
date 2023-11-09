@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Web Store</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>Spy Webstore</h1>
+  <p>All the items you need for espionage.</p>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Cost</th>
+    </tr>
+    <% items.forEach((item)=> { %>
+      <tr>
+        <td>
+          <%= item.name %>
+        </td>
+        <td>
+          <%= item.description %>
+        </td>
+        <td>
+          <%= item.cost %>
+        </td>
+        <td>
+          <button onclick="addToCart('<%= item._id %>')">Add to Cart</button>
+        </td>
+      </tr>
+      <% }) %>
+  </table>
+</body>
+
+</html>
