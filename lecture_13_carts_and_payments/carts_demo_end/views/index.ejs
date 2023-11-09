@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Web Store</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src='/js/index.js'></script>
+</head>
+
+<body>
+  <h1>Spy Webstore</h1>
+  <p>All the items you need for espionage.</p>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Cost</th>
+    </tr>
+    <% items.forEach((item)=> { %>
+      <tr>
+        <td>
+          <%= item.name %>
+        </td>
+        <td>
+          <%= item.description %>
+        </td>
+        <td>
+          <%= item.cost %>
+        </td>
+        <td>
+          <button onclick="addToCart('<%= item._id %>')">Add to Cart</button>
+        </td>
+      </tr>
+      <% }) %>
+  </table>
+
+  <h3>Current Cart</h3>
+  <button type='button' onclick='getCart()'>Reload Cart</button>
+
+  <div id='cart'></div>
+</body>
+
+</html>
