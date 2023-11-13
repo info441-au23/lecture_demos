@@ -34,5 +34,7 @@ async function getCart() {
 
   let cartList = asHtml.join("");
   cartList += `<h4>Order Total: ${totalCost}`;
+
+  cartList += "<a href='/checkout.html'>Checkout</a>";
   document.getElementById("cart").innerHTML = cartList;
 }
