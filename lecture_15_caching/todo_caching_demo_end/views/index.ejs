@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Spy todo list</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src='/js/index.js'></script>
+</head>
+
+<body>
+  <h1>Spy Deployment Checklist</h1>
+  <p>Be prepared when you head out into the field.</p>
+
+  <input type='text' id='new_item' style='width: 400px' />
+  <button type='button' onclick='addNewItem()'>Add new Item</button>
+
+  <hr style='margin: 1em 0' />
+
+  <button type='button' onclick='reloadItems()'>Reload</button>
+
+  <div id="results">
+    <h3>Todos - <span id='percent_completed'>
+        <%= (100 * percentCompleted).toFixed(2) %>%
+      </span> Completed
+    </h3>
+    <table>
+      <tr>
+        <th></th>
+        <th>Todo</th>
+        </th>
+      </tr>
+      <% items.forEach((item)=> { %>
+        <tr <% if(item.completed) {%>class='completed'<% } %>>
+            <td>
+              <input type='checkbox' id='item_<%= item._id %>' onclick='toggle("<%= item._id %>")' <% if(item.completed)
+                {%>checked<% } %>
+                />
+            </td>
+            <td>
+              <%= item.name %>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+  </div>
+</body>
+
+</html>

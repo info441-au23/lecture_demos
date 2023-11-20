@@ -1,0 +1,23 @@
+<h3>Todos - <span id='percent_completed'>
+    <%= (100 * percentCompleted).toFixed(2) %>%
+  </span> Completed
+</h3>
+<table>
+  <tr>
+    <th></th>
+    <th>Todo</th>
+    </th>
+  </tr>
+  <% items.forEach((item)=> { %>
+    <tr <% if(item.completed) {%>class='completed'<% } %>>
+        <td>
+          <input type='checkbox' id='item_<%= item._id %>' onclick='toggle("<%= item._id %>")' <% if(item.completed)
+            {%>checked<% } %>
+            />
+        </td>
+        <td>
+          <%= item.name %>
+        </td>
+    </tr>
+    <% }) %>
+</table>
