@@ -1,0 +1,37 @@
+<html>
+
+<head>
+  <title>Express</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+
+  <script type="text/javascript">
+    async function load(location) {
+      const url = `${location}/api/spies`;
+      const output = await fetch(url);
+      const data = await output.json();
+
+      document.getElementById(`${location}_results`).innerHTML = data.spies.map((spy) => {
+        return `
+          <div>
+            <label>${spy.name}:</label> ${spy.city}
+          </div>
+        `;
+      }).join('');
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Spy Proxy</h1>
+  <h3>Americas Spies</h3>
+  <button onclick="load('americas')">Load</button>
+  <div id='americas_results'></div>
+
+  <h3>European Spies</h3>
+  <button onclick="load('eu')">Load</button>
+  <div id='eu_results'></div>
+
+
+</body>
+
+</html>

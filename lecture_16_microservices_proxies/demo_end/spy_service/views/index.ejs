@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Spies</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src='/js/index.js'></script>
+</head>
+
+<body>
+  <h1>Spies - <%= process.env.REGION %>
+  </h1>
+
+  <div id="results">
+    <table>
+      <tr>
+        <th>Spy</th>
+        <th>City</th>
+      </tr>
+      <% spies.forEach((spy)=> { %>
+        <tr>
+          <td>
+            <%= spy.name %>
+          </td>
+          <td>
+            <%= spy.city %>
+          </td>
+        </tr>
+        <% }) %>
+    </table>
+  </div>
+</body>
+
+</html>
