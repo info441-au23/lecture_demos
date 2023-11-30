@@ -1,0 +1,13 @@
+package lecture18;
+syntax = "proto3";
+
+message Spy {
+  string name = 1;
+  int32 missions = 2;
+  int64 lastMission = 4;
+}
+
+message SpyMessage {
+  string status = 1;
+  repeated Spy spies = 2;
+}

@@ -1,0 +1,51 @@
+<html>
+
+<head>
+  <title>Spies</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script src="//cdn.jsdelivr.net/npm/protobufjs@7.2.5/dist/protobuf.min.js"></script>
+  <script type='text/javascript'>
+    async function loadSpies() {
+      const root = await protobuf.load('/spies.proto');
+      const response = await fetch('/api/protobufs');
+
+      const buffer = await response.arrayBuffer();
+      const SpyMessage = root.lookupType('lecture18.SpyMessage');
+      const decoded = SpyMessage.decode(new Uint8Array(buffer));
+
+      const { status, spies: data } = decoded;
+
+      const rows = data.map(({ name, missions, lastMission }) =>
+        `<td>${name}</td><td>${missions}</td><td>${new Date(lastMission)}</td>`
+      );
+
+      document.getElementById('results').innerHTML =
+        `<table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Missions</th>
+              <th>Last Mission</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              ${rows.join('</tr><tr>')}
+            </tr>
+          </tbody>
+        </table>
+      `;
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Spies - With Protobufs</h1>
+  <div>
+    <button onclick='loadSpies()'>Load Spies</button>
+  </div>
+  <div id='results'>
+  </div>
+</body>
+
+</html>
